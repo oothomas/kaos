@@ -144,7 +144,7 @@ class BayesNet(object):
         nb_iter, iter_per_epoch = self._get_iterations(
             nb_iter, nb_epoch, iter_per_epoch)
         callbacks = CallbackList(callbacks)
-        callbacks._set_model(self)
+        callbacks.set_model(self)
         callbacks.on_train_begin()
 
         try:
