@@ -57,7 +57,7 @@ class MnistLoader(StandardDataLoader):
     def _load_mnist(self):
         file_name = self._download_mnist()
         f = gzip.open(file_name, 'rb')
-        train, valid, test = pkl.load(f)
+        train, valid, test = pkl.load(f, encoding='latin-1')
         f.close()
         self.x_train, self.y_train = train[0], train[1]
         self.x_valid, self.y_valid = valid[0], valid[1]
