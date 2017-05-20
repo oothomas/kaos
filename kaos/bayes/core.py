@@ -179,7 +179,7 @@ class BayesNet(object):
                 if self.stop_training:
                     break
         except KeyboardInterrupt:
-            print "\n[BayesNet] Abort: KeyboardInterrupt"
+            print("\n[BayesNet] Abort: KeyboardInterrupt")
             raise
 
         callbacks.on_train_end()
