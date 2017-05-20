@@ -167,7 +167,7 @@ class ModelSaver(Callback):
             print("Creating directory:", folder)
             os.makedirs(folder)
 
-        print "Saving model to {:s}".format(filepath)
+        print("Saving model to {:s}").format(filepath)
         self.filepath = filepath
 
     def on_epoch_end(self, epoch, logs={}):
