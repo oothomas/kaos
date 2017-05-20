@@ -1,7 +1,7 @@
 import numpy as np
 import pickle as pkl
 import os, gzip
-import urllib.request
+from urllib.request import urlretrieve
 import scipy.io
 
 class StandardDataLoader(object):
@@ -51,7 +51,7 @@ class MnistLoader(StandardDataLoader):
         if not os.path.exists(data_loc):
             url = 'http://www.iro.umontreal.ca/~lisa/deep/data/mnist/mnist.pkl.gz'
             print("Downloading data from:", url)
-             urllib.request.urlretrieve(url, data_loc)
+            urlretrieve(url, data_loc)
         return data_loc
 
     def _load_mnist(self):
