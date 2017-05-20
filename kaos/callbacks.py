@@ -164,7 +164,7 @@ class ModelSaver(Callback):
         self.fh = fh
         folder = os.path.dirname(filepath)
         if not os.path.exists(folder):
-            print "Creating directory:", folder
+            print("Creating directory:", folder)
             os.makedirs(folder)
 
         print "Saving model to {:s}".format(filepath)
