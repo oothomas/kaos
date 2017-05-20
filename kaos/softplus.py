@@ -1,4 +1,4 @@
-from keras.layers import merge
+from keras.layers.merge import Add, Concatenate
 from keras import backend as K
 import numpy as np
 
