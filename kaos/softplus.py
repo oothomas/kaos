@@ -21,7 +21,7 @@ def log_normal(x, p=None, eps=0.0):
         mu, var = 0, 1
     else:
         mu, var = p
-	var += eps
+    var += eps
     return - 0.5 * K.sum(K.log(2*np.pi) + K.log(var) + K.square(x - mu) / var, axis=-1)
 
 def kl_normal(q, p=None):
