@@ -43,7 +43,7 @@ def rename(newname):
 
 def ask(question):
     while True:
-        ans = raw_input(question + ' (y/n): ')
+        ans = input(question + ' (y/n): ')
         if ans in {'y', 'n'}:
             return ans == 'y'
 
