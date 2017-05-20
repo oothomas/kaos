@@ -51,7 +51,7 @@ class MnistLoader(StandardDataLoader):
         if not os.path.exists(data_loc):
             url = 'http://www.iro.umontreal.ca/~lisa/deep/data/mnist/mnist.pkl.gz'
             print("Downloading data from:", url)
-            data_loc = urllib.request.urlretrieve(url)
+             = urllib.request.urlretrieve(url, data_loc)
         return data_loc
 
     def _load_mnist(self):
