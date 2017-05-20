@@ -1,4 +1,4 @@
-from keras.layers import merge, Lambda
+from keras.layers import merge
 
 def infer_mu(lp_par):
     l_mu, l_var, p_mu, p_var = lp_par
