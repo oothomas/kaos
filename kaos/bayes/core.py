@@ -150,7 +150,7 @@ class BayesNet(object):
         try:
             epoch = 0
             self.stop_training = False
-            for i in xrange(nb_iter):
+            for i in range(nb_iter):
                 # Begin epoch
                 if i % iter_per_epoch == 0:
                     callbacks.on_epoch_begin(epoch)
