@@ -9,7 +9,7 @@ import sys
 import os
 
 def _print(stream, string):
-    print >>stream, string,
+    print(string, file = sys.stdout)
     if stream is not sys.stdout:
         print(string)
 
