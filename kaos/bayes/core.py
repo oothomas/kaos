@@ -91,7 +91,7 @@ class BayesNet(object):
                 defined.
         """
         self._compute_log_likelihood = compute_log_likelihood
-        if verbose > 0: print "[BayesNet] Defining graph..."
+        if verbose > 0: print("[BayesNet] Defining graph...")
         inputs, outputs, losses, hidden_outputs = self._define_io_loss()
         # preserve direct access to variables for debugging purposes
         self.debug_info = {'inputs': inputs,
@@ -103,15 +103,15 @@ class BayesNet(object):
 
         # Hidden outputs trick
         if len(hidden_outputs) > 0:
-            if verbose > 0: print "[BayesNet] Defining hidden model..."
+            if verbose > 0: print("[BayesNet] Defining hidden model...")
             self.hidden_model = Model(inputs, outputs + hidden_outputs)
             self.keras_model.layers = self.hidden_model.layers
 
-        if verbose > 0: print "[BayesNet] Compiling model..."
+        if verbose > 0: print("[BayesNet] Compiling model...")
         self.keras_model.compile(optimizer=optimizer,
                                  loss=losses,
                                  loss_weights=loss_weights)
-        if verbose > 0: print "[BayesNet] Compilation complete"
+        if verbose > 0: print("[BayesNet] Compilation complete")
 
     @staticmethod
     def _get_iterations(nb_iter, nb_epoch, iter_per_epoch):
