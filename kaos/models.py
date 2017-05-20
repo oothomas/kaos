@@ -19,7 +19,7 @@ class Base(BayesNet):
         x = data_input
         ln_imp = np.empty((len(x), 0))
 
-        for i in xrange(n_samples):
+        for i in range(n_samples):
             sample = self._log_importance_likelihood([x, 0]).reshape(-1,1)
             ln_imp = np.hstack((ln_imp, sample))
 
