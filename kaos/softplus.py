@@ -1,4 +1,4 @@
-from keras.layers.merge import Add, Concatenate
+from keras.layers import merge, Lamda
 from keras import backend as K
 import numpy as np
 
@@ -14,14 +14,14 @@ def sampling_shape(input_shape):
     return input_shape
 
 def gaussian_sampler(z_par):
-    return Concatenate(z_par, mode=sampling, output_shape=sampling_shape)
+    return merge(z_par, mode=sampling, output_shape=sampling_shape)
 
 def log_normal(x, p=None, eps=0.0):
     if p is None:
         mu, var = 0, 1
     else:
         mu, var = p
-    var += eps
+	var += eps
     return - 0.5 * K.sum(K.log(2*np.pi) + K.log(var) + K.square(x - mu) / var, axis=-1)
 
 def kl_normal(q, p=None):
