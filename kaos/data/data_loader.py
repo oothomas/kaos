@@ -55,7 +55,8 @@ class MnistLoader(StandardDataLoader):
         return data_loc
 
     def _load_mnist(self):
-        f = gzip.open(self._download_mnist(), 'rb')
+        file_name, headers = self._download_mnist()
+        f = gzip.open(file_name, 'rb')
         train, valid, test = pkl.load(f)
         f.close()
         self.x_train, self.y_train = train[0], train[1]
