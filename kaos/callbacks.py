@@ -11,7 +11,7 @@ import os
 def _print(stream, string):
     print >>stream, string,
     if stream is not sys.stdout:
-        print string,
+        print(string)
 
 def _pretty_print(stream, name, val):
     _print(stream, '{0:s}: {1:9.3e} ;'.format(name, val))
