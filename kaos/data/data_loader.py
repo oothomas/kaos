@@ -1,6 +1,7 @@
 import numpy as np
 import pickle as pkl
 import os, gzip
+import urllib.request
 import scipy.io
 
 class StandardDataLoader(object):
