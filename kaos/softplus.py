@@ -14,7 +14,7 @@ def sampling_shape(input_shape):
     return input_shape
 
 def gaussian_sampler(z_par):
-    return merge(z_par, mode=sampling, output_shape=sampling_shape)
+    return Concatenate(z_par, mode=sampling, output_shape=sampling_shape)
 
 def log_normal(x, p=None, eps=0.0):
     if p is None:
