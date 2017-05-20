@@ -1,4 +1,5 @@
-from keras.layers import merge, Lambda
+from keras.layers import Lambda
+from keras.layers.merge import Add, Concatenate
 
 def infer_mu(lp_par):
     l_mu, l_var, p_mu, p_var = lp_par
@@ -40,9 +41,9 @@ def infer_ladder(l_par, p_par):
     lp_par = l_par + p_par
 
     if p_par == (0, 1):
-        q_mu = merge(l_par, mode=infer_mu0, output_shape=infer_mu0_shape)
+        q_mu = Concatenate(l_par, mode=infer_mu0, output_shape=infer_mu0_shape)
         q_var = Lambda(infer_var0, infer_var0_shape)(l_par[1])
     else:
-        q_mu = merge(lp_par, mode=infer_mu, output_shape=infer_mu_shape)
-        q_var = merge(lp_var, mode=infer_var, output_shape=infer_var_shape)
+        q_mu = Concatenate(lp_par, mode=infer_mu, output_shape=infer_mu_shape)
+        q_var = Concatenate(lp_var, mode=infer_var, output_shape=infer_var_shape)
     return q_mu, q_var
