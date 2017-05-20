@@ -1,6 +1,6 @@
 from keras.layers import BatchNormalization
 from keras.engine import Layer, InputSpec
-from keras import initializations
+from keras import initializers
 from keras import backend as K
 
 class BatchNormalization(BatchNormalization):
