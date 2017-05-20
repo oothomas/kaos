@@ -49,7 +49,7 @@ def ask(question):
 
 class Session(object):
     def __init__(self, fh=sys.stdout, save_model_path=None):
-        print "[Session] Begin session..."
+        print("[Session] Begin session...")
         self.fh = fh
         self.save_model_path = save_model_path
 
@@ -61,15 +61,15 @@ class Session(object):
             if ask('Do you wish to delete the log?'):
                 if os.path.exists(self.fh.name):
                     os.remove(self.fh.name)
-                    print "[Session] Log deleted"
+                    print("[Session] Log deleted")
                 else:
-                    print "[Session] Log does not exist"
+                    print("[Session] Log does not exist")
             if self.save_model_path is not None:
                 if ask('Do you wish to delete the model?'):
                     if os.path.exists(self.save_model_path):
                         os.remove(self.save_model_path)
                     else:
-                        print "[Session] Model does not exist"
+                        print("[Session] Model does not exist")
         if isinstance(exc_val, KeyboardInterrupt):
             quit()
 
@@ -78,12 +78,12 @@ def file_handle(path, name, version, get_seed=False,
     print
     folder = os.path.join(path, name, version)
     if test_run:
-        print "This is a test run. Directories are created. Files are not."
+        print("This is a test run. Directories are created. Files are not.")
 
     if os.path.exists(folder):
-        print "Directory already exists:", folder
+        print("Directory already exists:", folder)
     else:
-        print "Creating directory:", folder
+        print("Creating directory:", folder)
         os.makedirs(folder)
 
     if overwrite:
@@ -99,10 +99,10 @@ def file_handle(path, name, version, get_seed=False,
             filepath = os.path.join(folder, filename)
 
     if test_run:
-        print "Would have written to:", filepath
+        print("Would have written to:", filepath)
         fh = sys.stdout
     else:
-        print "Writing to:", filepath
+        print("Writing to:", filepath)
         fh = open(filepath, 'w', 0)
     print
 
