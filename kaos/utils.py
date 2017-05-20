@@ -103,7 +103,7 @@ def file_handle(path, name, version, get_seed=False,
         fh = sys.stdout
     else:
         print("Writing to:", filepath)
-        fh = open(filepath, 'w', 0)
+        fh = open(filepath, 'w')
     print
 
     if get_seed:
